@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("System wspomagania firmy kurierskiej\n\n\n\n ");
         Scanner scanner = new Scanner(System.in);
-        List<Kurier> kurierzy= new ArrayList<>();
+        List<Kurier> kurierzy= new ArrayList<Kurier>();
         List<Klient> klienci = new ArrayList<>();
         int choice;
         do {
@@ -23,9 +23,22 @@ public class Main {
             switch (choice) {
                 case 1:
                     System.out.println("Wyświetlenie listy wszystkich kurierów: ");
+                    if (kurierzy.size()==0)
+                    {
+                        System.out.println("Brak kurierów do wyświetlenia!");
+                    }else{
                     for (int i = 0; i<kurierzy.size(); i++)
                     {
-                        System.out.println(kurierzy.get(i));
+                        System.out.println("Imie: "+kurierzy.get(i).getImie());
+                        System.out.println("Nazwisko: "+kurierzy.get(i).getNazwisko());
+                        System.out.println("ID: "+kurierzy.get(i).getId());
+                        if (kurierzy.get(i).isWolny())
+                        {
+                            System.out.println("Kurier jest wolny, możesz przypisać klienta.");
+                        }else {
+                            System.out.println("Kurier jest zajęty, nie możesz przypisać do niego klienta.");
+                        }
+                    }
                     }
                     break;
                 case 2:
@@ -47,8 +60,8 @@ public class Main {
                         String nazwisko = scanner.next();
                         System.out.println("ID: ");
                         int id = scanner.nextInt();
-                        Kurier kurier = new Kurier(imie, nazwisko, id, true);
-                        kurierzy.add(kurier);
+//                        Kurier kurier = new Kurier(imie, nazwisko, id, true);
+                        kurierzy.add(new Kurier(imie, nazwisko, id ,true));
                     }
                     break;
                 case 5:
