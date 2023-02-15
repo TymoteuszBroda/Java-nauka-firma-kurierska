@@ -48,12 +48,12 @@ public class Main {
                     System.out.println("Usunięcie rekordu klienta: ");
                     System.out.println("Którego klienta chcesz usunąć?");
                     System.out.println("Imie: ");
-                    String imie = scanner.next();
+                    String imieKlienta = scanner.next();
                     System.out.println("Nazwisko: ");
-                    String nazwisko = scanner.next();
+                    String nazwiskoKlienta = scanner.next();
                     for (int i = 0; i<klienci.size(); i++)
                     {
-                        if (klienci.contains(imie)&&klienci.contains(nazwisko))
+                        if (klienci.contains(imieKlienta)&&klienci.contains(nazwiskoKlienta))
                         {
                             klienci.remove(i);
                         }
