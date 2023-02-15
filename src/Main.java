@@ -53,7 +53,7 @@ public class Main {
                     String nazwiskoKlienta = scanner.next();
                     for (int i = 0; i<klienci.size(); i++)
                     {
-                        if (klienci.contains(imieKlienta)&&klienci.contains(nazwiskoKlienta))
+                        if (klienci.get(i).getImie().contains(imieKlienta)&&klienci.get(i).getNazwisko().contains(nazwiskoKlienta))
                         {
                             klienci.remove(i);
                         }
