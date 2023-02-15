@@ -7,7 +7,7 @@ public class Main {
         System.out.println("System wspomagania firmy kurierskiej\n\n\n\n ");
         Scanner scanner = new Scanner(System.in);
         List<Kurier> kurierzy= new ArrayList<Kurier>();
-        List<Klient> klienci = new ArrayList<>();
+        List<Klient> klienci = new ArrayList<Klient>();
         int choice;
         do {
             System.out.println("Wybierz opcję:");
@@ -34,9 +34,9 @@ public class Main {
                         System.out.println("ID: "+kurierzy.get(i).getId());
                         if (kurierzy.get(i).isWolny())
                         {
-                            System.out.println("Kurier jest wolny, możesz przypisać klienta.");
+                            System.out.println("Kurier jest wolny, możesz przypisać klienta.\n\n");
                         }else {
-                            System.out.println("Kurier jest zajęty, nie możesz przypisać do niego klienta.");
+                            System.out.println("Kurier jest zajęty, nie możesz przypisać do niego klienta.\n\n");
                         }
                     }
                     }
@@ -46,6 +46,19 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Usunięcie rekordu klienta: ");
+                    System.out.println("Którego klienta chcesz usunąć?");
+                    System.out.println("Imie: ");
+                    String imie = scanner.next();
+                    System.out.println("Nazwisko: ");
+                    String nazwisko = scanner.next();
+                    for (int i = 0; i<klienci.size(); i++)
+                    {
+                        if (klienci.contains(imie)&&klienci.contains(nazwisko))
+                        {
+                            klienci.remove(i);
+                        }
+                    }
+
                     break;
                 case 4:
                     System.out.println("Dodawanie nowych kurierów: ");
@@ -82,8 +95,7 @@ public class Main {
                         System.out.println("Numer domu: ");
                         int numerDomu = scanner.nextInt();
                         int id = scanner.nextInt();
-                       Klient klient = new Klient(imie, nazwisko, miasto, ulica, numerDomu);
-                        klienci.add(klient);
+                        klienci.add(new Klient(imie, nazwisko, miasto, ulica, numerDomu));
                     }
                     break;
                 case 6:
